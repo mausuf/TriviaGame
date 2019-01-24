@@ -28,10 +28,8 @@
   <body>    
     <div class="container">
         <h3>You Got Bamboozled Bitch!</h3>
-        <h5 id="score"> </h5>
-        <h5 id="question"> </h5>
-        test
-        
+        <p id="score"></p>
+        <p id="question"></p>
     </div>
     
     <!---==============================================================--> 
@@ -40,23 +38,63 @@
     <script>
       //Array of Questions
       var gameQuestions = [
-      {q: "What color is space?", a: "b"},
-      {q: "What does space sound like?", a: "n"},
-      {q: "Who invented the concept of space?", a: "bob"}
+      {q: "What color is space?", a: "t" },
+      {q: "What does space sound like?", a: "t" },
+      {q: "Who invented the concept of space?", a: "f" }
       ];
+      
       //Global variables
       var score = 0;
       var questionIndex = 0;
-      //Functions
+      
+      //Functions to show questions and show score
       function renderQuestion(){
-      if (questionIndex <= (question.length - 1)) {
+      if (questionIndex <= (gameQuestions.length - 1)) {
         document.querySelector("#question").innerHTML = gameQuestions[questionIndex].q;
       }
       else {
         document.querySelector("#question").innerHTML = "Game Over!";
-        document.querySelector("#score").innerHTML = "Final Score: " + score + "out of " + questions.length;
+        document.querySelector("#score").innerHTML = "Final Score: " + score + "out of " + gameQuestions.length;
       }
-    };
+    }
+    
+      //Function to update score
+      function updateScore(){
+        document.querySelector("#score").innerHTML = "Score: " + score;
+    }
+      //------------------------------------------------------------------------------//
+      //Calling functions to start game
+      renderQuestion();
+      updateScore();
+
+      //On key press, run the following
+      document.onkeyup = function(event) {
+          //If no more questions, then stop the function
+          if (questionIndex === gameQuestions.length){
+          return;
+          }
+          
+          //Determine which key is pressed, set it to lowercase, and set it to the userInput variable
+          var userInput = event.key.toLowerCase();
+
+          //Only run this code if "t" or "f" is pressed
+          if (userInput === "t" || userInput === "f") {
+              //If correct answer is pressed, increase and update score, alert answer is correct
+              if (userInput === gameQuestions[questionIndex].a) {
+                alert("Correct!");
+                score++;
+                updateScore();
+              }
+              else {
+                alert("Wrong!");
+              }
+      
+
+          //Increment the questionIndex variable and call the renderQuestion function to show next question
+          questionIndex++;
+          renderQuestion();
+        }
+      };
 
 
     </script>
