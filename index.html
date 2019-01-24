@@ -1,0 +1,70 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bamboozle Trivia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Style CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="assets/css/style.css"/>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"/>
+    <!-- jQuery library -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Javascript -->
+    <script src="assets/javascript/app.js"></script>
+  </head>
+    <!---==============================================================--> 
+    <!---============================Body==============================--> 
+    <!---==============================================================--> 
+  <body>    
+    <div class="container">
+        <h3>You Got Bamboozled Bitch!</h3>
+        <h5 id="score"> </h5>
+        <h5 id="question"> </h5>
+        test
+        
+    </div>
+    
+    <!---==============================================================--> 
+    <!---==========================JavaScript==========================--> 
+    <!---==============================================================--> 
+    <script>
+      //Array of Questions
+      var gameQuestions = [
+      {q: "What color is space?", a: "b"},
+      {q: "What does space sound like?", a: "n"},
+      {q: "Who invented the concept of space?", a: "bob"}
+      ];
+      //Global variables
+      var score = 0;
+      var questionIndex = 0;
+      //Functions
+      function renderQuestion(){
+      if (questionIndex <= (question.length - 1)) {
+        document.querySelector("#question").innerHTML = gameQuestions[questionIndex].q;
+      }
+      else {
+        document.querySelector("#question").innerHTML = "Game Over!";
+        document.querySelector("#score").innerHTML = "Final Score: " + score + "out of " + questions.length;
+      }
+    };
+
+
+    </script>
+ 
+  </body>
+</html>
+
+
+<!--<span id="questions"></span>-->
+
+
