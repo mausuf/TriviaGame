@@ -27,7 +27,7 @@
     <!---==============================================================--> 
   <body>    
     <div class="container">
-        <h3>You Got Bamboozled Bitch!</h3>
+        <h3>Trivia Game!</h3>
         <p id="score"></p>
         <p id="question"></p>
     </div>
@@ -36,16 +36,47 @@
     <!---==========================JavaScript==========================--> 
     <!---==============================================================--> 
     <script>
-      //Array of Questions
-      var gameQuestions = [
-      {q: "What color is space?", a: "t" },
-      {q: "What does space sound like?", a: "t" },
-      {q: "Who invented the concept of space?", a: "f" }
-      ];
-      
       //Global variables
-      var score = 0;
-      var questionIndex = 0;
+      var trivia = {
+      score = 0,
+      questionIndex = 0,
+      correct = 0,
+      incorrect = 0,
+      timer = 0,
+      timerOn = 0,
+      timerId: "",
+      }
+      //Array of Questions
+      var gameQuestions = {
+      q1: "What color is space?",
+      q2: "What does space sound like?",
+      q3: "Who invented the concept of space?"
+      }
+      //Array of Options
+      var gameOptions = {
+      q1: ["blue", "red", "black", "green"],
+      q2: ["soft", "loud", "nun", "w0t"],
+      q3: ["w0t", "who", "what", "when"]
+      }
+      //Array of Answers
+      var gameAnswers = {
+      q1: "black",
+      q2: "nun",
+      q3: "w0t"
+      };
+      
+      //Start game function
+      function startGame(){
+        //Resetting starting variables
+        trivia.correct = 0;
+        trivia.incorrect = 0;
+        trivia .timer = 0;
+        trivia.score = 0;
+        trivia.questionIndex = 0;
+      };
+
+
+      //---==========================OG code below==========================--> 
       
       //Functions to show questions and show score
       function renderQuestion(){
