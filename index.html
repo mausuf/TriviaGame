@@ -1,139 +1,18 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Bamboozle Trivia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Style CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"/>
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"/>
-    <!-- jQuery library -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Javascript -->
-    <script src="assets/javascript/app.js"></script>
-  </head>
-    <!---==============================================================--> 
-    <!---============================Body==============================--> 
-    <!---==============================================================--> 
-  <body>    
-    <div class="container">
-        <h3>Trivia Game!</h3>
-        <p id="score"></p>
-        <p id="question"></p>
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <title>Simpsons Trivia</title>
+</head>
+<body>
+    
+<div id="wrapper">
+    <div id="subwrapper">
+    <h1 id="title">Simpsons Trivia</h1>
+    <button id="startButton">Start Game!</button>
     </div>
-    
-    <!---==============================================================--> 
-    <!---==========================JavaScript==========================--> 
-    <!---==============================================================--> 
-    <script>
-      //Global variables
-      var trivia = {
-      score = 0,
-      questionIndex = 0,
-      correct = 0,
-      incorrect = 0,
-      timer = 0,
-      timerOn = 0,
-      timerId: "",
-      }
-      //Array of Questions
-      var gameQuestions = {
-      q1: "What color is space?",
-      q2: "What does space sound like?",
-      q3: "Who invented the concept of space?"
-      }
-      //Array of Options
-      var gameOptions = {
-      q1: ["blue", "red", "black", "green"],
-      q2: ["soft", "loud", "nun", "w0t"],
-      q3: ["w0t", "who", "what", "when"]
-      }
-      //Array of Answers
-      var gameAnswers = {
-      q1: "black",
-      q2: "nun",
-      q3: "w0t"
-      };
-      
-      //Start game function
-      function startGame(){
-        //Resetting starting variables
-        trivia.correct = 0;
-        trivia.incorrect = 0;
-        trivia .timer = 0;
-        trivia.score = 0;
-        trivia.questionIndex = 0;
-      };
+</div>
 
-
-      //---==========================OG code below==========================--> 
-      
-      //Functions to show questions and show score
-      function renderQuestion(){
-      if (questionIndex <= (gameQuestions.length - 1)) {
-        document.querySelector("#question").innerHTML = gameQuestions[questionIndex].q;
-      }
-      else {
-        document.querySelector("#question").innerHTML = "Game Over!";
-        document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + gameQuestions.length;
-      }
-    }
-    
-      //Function to update score
-      function updateScore(){
-        document.querySelector("#score").innerHTML = "Score: " + score;
-    }
-      //------------------------------------------------------------------------------//
-      //Calling functions to start game
-      renderQuestion();
-      updateScore();
-
-      //On key press, run the following
-      document.onkeyup = function(event) {
-          //If no more questions, then stop the function
-          if (questionIndex === gameQuestions.length){
-          return;
-          }
-          
-          //Determine which key is pressed, set it to lowercase, and set it to the userInput variable
-          var userInput = event.key.toLowerCase();
-
-          //Only run this code if "t" or "f" is pressed
-          if (userInput === "t" || userInput === "f") {
-              //If correct answer is pressed, increase and update score, alert answer is correct
-              if (userInput === gameQuestions[questionIndex].a) {
-                alert("Correct!");
-                score++;
-                updateScore();
-              }
-              else {
-                alert("Wrong!");
-              }
-      
-
-          //Increment the questionIndex variable and call the renderQuestion function to show next question
-          questionIndex++;
-          renderQuestion();
-        }
-      };
-
-
-    </script>
- 
-  </body>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
 </html>
-
-
-
-
-
