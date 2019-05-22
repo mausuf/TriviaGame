@@ -10,7 +10,56 @@ $("#startButton").on("click", function(){
 });
 
 var questions = [{
-    question: "Q1",
-    answers:["A1", "A2", "A3", "A4"],
-    correctAnswer: "A1",
-    }]
+    question: "1) In which town do the Simpsons reside?",
+    answers:["Springfield", "Shelbyville", "Seinfeld"],
+    correctAnswer: "Springfield",
+    }, 
+    {
+    question: "2) Who is Mr Burns' assistant?",
+    answers:["Seymour Skinner", "Barnard Gumble", "Waylon Smithers"],
+    correctAnswer: "Waylon Smithers",
+    },
+    {
+    question: "3) What is the name of the bar where Homer drinks?",
+    answers:["Moe's Tavern", "Joe's Cavern", "he Drink Hole"],
+    correctAnswer: "Moe's Tavern",
+    },
+    {
+    question: "4) What did the Simpsons get for their first Christmas?",
+    answers:["A dog", "A cat", "A hamster"],
+    correctAnswer: "A dog",
+    },
+    {
+    question: "5) Who runs the Kwik-E-Mart?",
+    answers:["Homer", "Apu", "Mr. Burns"],
+    correctAnswer: "Apu",
+    },
+    {
+    question: "6) What is the name of the school bus driver?",
+    answers:["Otto", "Blotto", "Martin"],
+    correctAnswer: "Otto",
+    },
+    {
+    question: "7) What is Chief Wiggum's first name?",
+    answers:["Cletus", "Clancey", "Charlie"],
+    correctAnswer: "Clancey",
+    },
+    {
+    question: "8) What did Homer smuggle on board the space shuttle?",
+    answers:["A bag of potato chips", "A tub of gummi beers", "Duff Beer"],
+    correctAnswer: "A bag of potato chips",
+    },
+    {
+    question: "9) What is Sideshow Bob's middle name?",
+    answers:["Terwilliger", "Robert", "Underdunk"],
+    correctAnswer: "Underdunk",
+    },
+    {
+    question: "10) What is the name of the first Simpsons episode aired in the U.S.?",
+    answers:["Bart the Genius", "Simpsons Roasting On An Open Fire", "Some Enchanted Evening"],
+    correctAnswer: "Simpsons Roasting On An Open Fire",
+    }
+]
+
+
+
