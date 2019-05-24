@@ -1,0 +1,13 @@
+* {
+    font-family: 'Indie Flower', cursive;
+    color: black;
+}
+
+html {
+    background-image: url("../../assets/images/simpsonsWallpaper.jpg");
+    background-position: 60%;
+}
+
+#wrapper {
+    text-align: center;
+}
