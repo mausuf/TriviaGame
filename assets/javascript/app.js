@@ -3,6 +3,10 @@ $("#startButton").on("click", function(){
     game.start();
 });
 
+$(document).on("click","#endGame", function(){
+    game.done();
+});
+
 var questions = [{
     question: "1) In which town do the Simpsons reside?",
     answers:["Springfield", "Shelbyville", "Seinfeld"],
@@ -59,8 +63,7 @@ var questions = [{
 var game = {
     correct: 0, 
     incorrect: 0, 
-    counter: 30,
-    
+    counter: 60,
     countDown: function(){
         game.counter--;
         $("#counter").html(game.counter)
@@ -72,7 +75,7 @@ var game = {
     },
     start: function(){
         timer = setInterval(game.countDown,1000);
-        $("#subwrapper").prepend("<h2>Time Remaining: <span id='counter'>30</span> Seconds </h2>");
+        $("#subwrapper").prepend("<h2>Time Remaining: <span id='counter'>60</span> Seconds </h2>");
         $("#startButton").remove();
         for(var i=0; i<questions.length; i++){
         $("#subwrapper").append("<h2>" + questions[i].question + "</h2>")
@@ -80,6 +83,7 @@ var game = {
             $("#subwrapper").append("<input type='radio' name='question-" + i +"'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
         }
+        $("#subwrapper").append("<br><button id='endGame'>Done!</button>");
     },
     done: function(){
         $.each($("input[name='question-0']:checked"),function(){
