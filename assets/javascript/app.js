@@ -1,12 +1,6 @@
 $("#startButton").on("click", function(){
     // console.log("Click is working!")
-    $("#startButton").remove();
-    for(var i=0; i<questions.length; i++){
-        $("#subwrapper").append("<h2>" + questions[i].question + "</h2>")
-        for(var j=0; j<questions[i].answers.length; j++){
-            $("#subwrapper").append("<input type='radio' name='question-" + i +"'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
-        };
-    };
+    game.start();
 });
 
 var questions = [{
@@ -60,6 +54,32 @@ var questions = [{
     correctAnswer: "Simpsons Roasting On An Open Fire",
     }
 ]
+
+// Score and counter
+var game = {
+    correct: 0, 
+    incorrect: 0, 
+    timer: 120,
+    countDown: function(){
+        game.timer--;
+        $("#counter").html(game.timer)
+        if(game.timer<=0){
+            console.log("Time is up!")
+            game.done();
+        }
+    },
+    start: function(){
+        timer = setInterval(game.countDown,1000);
+        $("#subwrapper").prepend("<h2>Time Remaining: <span id='counter'>120</span> Seconds </h2>");
+        $("#startButton").remove();
+        for(var i=0; i<questions.length; i++){
+        $("#subwrapper").append("<h2>" + questions[i].question + "</h2>")
+        for(var j=0; j<questions[i].answers.length; j++){
+            $("#subwrapper").append("<input type='radio' name='question-" + i +"'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+            }
+        }
+    }
+}
 
 
 
